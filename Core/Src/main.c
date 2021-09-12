@@ -86,8 +86,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , GPIO_PIN_SET ) ;
-  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , GPIO_PIN_SET ) ;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -97,20 +96,17 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , GPIO_PIN_RESET ) ;
-	  HAL_Delay (1000) ;
-	  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , GPIO_PIN_SET ) ;
-	  HAL_Delay (1000) ;
-
-	  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , GPIO_PIN_RESET ) ;
-	  HAL_Delay (1000) ;
-	  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , GPIO_PIN_SET ) ;
-	  HAL_Delay (1000) ;
-
-	  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , GPIO_PIN_RESET ) ;
-	  HAL_Delay (1000) ;
-	  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , GPIO_PIN_SET ) ;
-	  HAL_Delay (1000) ;
+	  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , 0) ;
+	  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , 1) ;
+	  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , 1) ;
+	  HAL_Delay (5000) ;
+	  HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin , 1) ;
+	  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , 0) ;
+	  HAL_Delay (2000) ;
+	  HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , 1) ;
+	  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , 0) ;
+	  HAL_Delay (3000) ;
+	  HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , 1) ;
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
