@@ -102,14 +102,14 @@ int main(void)
 	 HAL_GPIO_WritePin ( GREEN1_GPIO_Port , GREEN1_Pin , GPIO_PIN_RESET ) ;
 	 HAL_GPIO_WritePin ( YELLOW1_GPIO_Port , YELLOW1_Pin , GPIO_PIN_SET ) ;
 	 HAL_GPIO_WritePin ( YELLOW2_GPIO_Port , YELLOW2_Pin , GPIO_PIN_SET ) ;
-	 HAL_Delay(2000) ;
+	 HAL_Delay(3000) ;
 	 //YELLOW
 	 HAL_GPIO_WritePin ( RED1_GPIO_Port , RED1_Pin , GPIO_PIN_SET ) ;
-	 HAL_GPIO_WritePin ( RED2_GPIO_Port , RED2_Pin , GPIO_PIN_SET ) ;
+	 HAL_GPIO_WritePin ( RED2_GPIO_Port , RED2_Pin , GPIO_PIN_RESET ) ;
 	 HAL_GPIO_WritePin ( GREEN2_GPIO_Port , GREEN2_Pin , GPIO_PIN_SET ) ;
 	 HAL_GPIO_WritePin ( GREEN1_GPIO_Port , GREEN1_Pin , GPIO_PIN_SET ) ;
 	 HAL_GPIO_WritePin ( YELLOW1_GPIO_Port , YELLOW1_Pin , GPIO_PIN_RESET ) ;
-	 HAL_GPIO_WritePin ( YELLOW2_GPIO_Port , YELLOW2_Pin , GPIO_PIN_RESET ) ;
+	 HAL_GPIO_WritePin ( YELLOW2_GPIO_Port , YELLOW2_Pin , GPIO_PIN_SET ) ;
 	 HAL_Delay(2000);
 	 //RED1:OFF - RED2:ON
 
@@ -119,13 +119,13 @@ int main(void)
 	 HAL_GPIO_WritePin ( GREEN1_GPIO_Port , GREEN1_Pin , GPIO_PIN_SET ) ;
 	 HAL_GPIO_WritePin ( YELLOW1_GPIO_Port , YELLOW1_Pin , GPIO_PIN_SET ) ;
 	 HAL_GPIO_WritePin ( YELLOW2_GPIO_Port , YELLOW2_Pin , GPIO_PIN_SET ) ;
-	  HAL_Delay(2000);
+	  HAL_Delay(3000);
 	  //YELLOW ON
-	  HAL_GPIO_WritePin ( RED1_GPIO_Port , RED1_Pin , GPIO_PIN_SET ) ;
+	  HAL_GPIO_WritePin ( RED1_GPIO_Port , RED1_Pin , GPIO_PIN_RESET ) ;
 	  HAL_GPIO_WritePin ( RED2_GPIO_Port , RED2_Pin , GPIO_PIN_SET ) ;
 	  HAL_GPIO_WritePin ( GREEN2_GPIO_Port , GREEN2_Pin , GPIO_PIN_SET ) ;
 	  HAL_GPIO_WritePin ( GREEN1_GPIO_Port , GREEN1_Pin , GPIO_PIN_SET ) ;
-	  HAL_GPIO_WritePin ( YELLOW1_GPIO_Port , YELLOW1_Pin , GPIO_PIN_RESET ) ;
+	  HAL_GPIO_WritePin ( YELLOW1_GPIO_Port , YELLOW1_Pin , GPIO_PIN_SET ) ;
 	  HAL_GPIO_WritePin ( YELLOW2_GPIO_Port , YELLOW2_Pin , GPIO_PIN_RESET ) ;
 	  HAL_Delay(2000);
     /* USER CODE BEGIN 3 */
