@@ -88,7 +88,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin , GPIO_PIN_SET ) ;
   HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin , GPIO_PIN_SET ) ;
-  //asd
   /* USER CODE END 2 */
 
   /* Infinite loop */
