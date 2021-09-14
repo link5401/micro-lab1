@@ -1,2 +1,3 @@
-# micro-lab1
-lab1 for microprocessor 
+# micro-lab
+This is a repository for microprocessor lab
+Proteus folder contains proteus file.
