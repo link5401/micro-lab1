@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "segment_display.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -91,14 +91,20 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int counter = 0;
   while (1)
   {
     /* USER CODE END WHILE */
-	if (counter >= 10) counter = 0;
-	update_value_segment(counter++);
-	display_segment_number();
-	HAL_Delay(1000);
+	  HAL_GPIO_WritePin(_12_GPIO_Port , _12_Pin , 1) ;
+	  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 1) ;
+	  HAL_GPIO_WritePin(_2_GPIO_Port , _2_Pin , 1) ;
+	  HAL_GPIO_WritePin(_1_GPIO_Port , _1_Pin , 1) ;
+	  HAL_Delay(1000) ;
+	  HAL_GPIO_WritePin(_12_GPIO_Port , _12_Pin , 0 ) ;
+		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
+		  HAL_GPIO_WritePin(_2_GPIO_Port , _2_Pin , 0) ;
+		  HAL_GPIO_WritePin(_1_GPIO_Port , _1_Pin , 0) ;
+	  HAL_Delay(1000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -153,13 +159,16 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, A_Pin|B_Pin|C_Pin|D_Pin
-                          |E_Pin|F_Pin|G_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, _1_Pin|_2_Pin|_3_Pin|_4_Pin
+                          |_5_Pin|_6_Pin|_7_Pin|_8_Pin
+                          |_9_Pin|_10_Pin|_11_Pin|_12_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : A_Pin B_Pin C_Pin D_Pin
-                           E_Pin F_Pin G_Pin */
-  GPIO_InitStruct.Pin = A_Pin|B_Pin|C_Pin|D_Pin
-                          |E_Pin|F_Pin|G_Pin;
+  /*Configure GPIO pins : _1_Pin _2_Pin _3_Pin _4_Pin
+                           _5_Pin _6_Pin _7_Pin _8_Pin
+                           _9_Pin _10_Pin _11_Pin _12_Pin */
+  GPIO_InitStruct.Pin = _1_Pin|_2_Pin|_3_Pin|_4_Pin
+                          |_5_Pin|_6_Pin|_7_Pin|_8_Pin
+                          |_9_Pin|_10_Pin|_11_Pin|_12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
