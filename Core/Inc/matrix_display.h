@@ -13,6 +13,4 @@ void display_second_row(uint8_t b);
 void display_third_row(uint8_t b);
 void display_fourth_row(uint8_t b);
 void display_fifth_row(uint8_t b);
-
-void clearAllClock();
 #endif /* INC_MATRIX_DISPLAY_H_ */
