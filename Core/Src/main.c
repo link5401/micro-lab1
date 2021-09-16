@@ -103,7 +103,6 @@ int main(void)
 		  display_third_row(led_connection[i]);
 
 		  display_fourth_row(led_connection[i]);
-
 		  display_fifth_row(led_connection[i]);
 
 	  }
