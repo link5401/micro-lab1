@@ -9,6 +9,7 @@
 #include "matrix_display.h"
 //NUMBER OF LEDS PER ROW
 #define LED_PER_ROW 5
+#define DELAY_TIME 50
 // represents leds to toggle
 
 void display_first_row(uint8_t b){
@@ -38,7 +39,7 @@ void display_first_row(uint8_t b){
 	  }else{
 		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 	  }
-	  HAL_Delay(1) ;
+	  HAL_Delay(DELAY_TIME) ;
 	  HAL_GPIO_WritePin(_6_GPIO_Port , _6_Pin , 1) ;
 }
 void display_second_row(uint8_t b){
@@ -68,7 +69,7 @@ void display_second_row(uint8_t b){
 		  }else{
 			  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 		  }
-		  HAL_Delay(1) ;
+		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_7_GPIO_Port , _7_Pin , 1) ;
 }
 void display_third_row(uint8_t b){
@@ -98,7 +99,7 @@ void display_third_row(uint8_t b){
 		  }else{
 			  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 		  }
-		  HAL_Delay(1) ;
+		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_8_GPIO_Port , _8_Pin , 1) ;
 }
 void display_fourth_row(uint8_t b){
@@ -128,7 +129,7 @@ void display_fourth_row(uint8_t b){
 		  }else{
 			  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 		  }
-		  HAL_Delay(1) ;
+		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_9_GPIO_Port , _9_Pin , 1) ;
 }
 void display_fifth_row(uint8_t b){
@@ -158,7 +159,7 @@ void display_fifth_row(uint8_t b){
 		  }else{
 			  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 		  }
-		  HAL_Delay(1) ;
+		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_10_GPIO_Port , _10_Pin , 1) ;
 }
 

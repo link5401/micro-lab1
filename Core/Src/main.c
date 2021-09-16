@@ -92,14 +92,24 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   uint8_t led_connection[5] = {0x12 , 0x22 , 0x04 , 0x08 , 0x10};
+  int counter = 10;
   while (1)
   {
     /* USER CODE END WHILE */
 
+	  if(counter % 2 == 0){
 
 		  display_first_row(led_connection[0]) ;
-		  display_second_row(led_connection[0]) ;
+		  display_second_row(led_connection[0]) ;\
 		  clearAllClock();
+
+	  } else{
+
+		  display_third_row(led_connection[0]) ;
+		  display_fourth_row(led_connection[0]) ;
+		  clearAllClock();
+	  }
+	  counter--;
 
     /* USER CODE BEGIN 3 */
   }
