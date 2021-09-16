@@ -91,21 +91,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t led_connection[5] = {0x01 , 0x02 , 0x04 , 0x08 , 0x10};
+  uint8_t led_connection[5] = {0x12 , 0x22 , 0x04 , 0x08 , 0x10};
   while (1)
   {
     /* USER CODE END WHILE */
-	  for(int i = 0; i < 5; i++){
-		  display_first_row(led_connection[i]);
 
-		  display_second_row(led_connection[i]);
 
-		  display_third_row(led_connection[i]);
-
-		  display_fourth_row(led_connection[i]);
-		  display_fifth_row(led_connection[i]);
-
-	  }
+		  display_first_row(led_connection[0]) ;
+		  display_second_row(led_connection[0]) ;
+		  clearAllClock();
 
     /* USER CODE BEGIN 3 */
   }
