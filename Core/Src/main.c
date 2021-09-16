@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "matrix_display.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -91,19 +91,22 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint8_t led_connection[5] = {0x01 , 0x02 , 0x04 , 0x08 , 0x10};
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_WritePin(_12_GPIO_Port , _12_Pin , 1) ;
-	  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 1) ;
-	  HAL_GPIO_WritePin(_2_GPIO_Port , _2_Pin , 1) ;
-	  HAL_GPIO_WritePin(_1_GPIO_Port , _1_Pin , 1) ;
-	  HAL_Delay(1000) ;
-	  HAL_GPIO_WritePin(_12_GPIO_Port , _12_Pin , 0 ) ;
-		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
-		  HAL_GPIO_WritePin(_2_GPIO_Port , _2_Pin , 0) ;
-		  HAL_GPIO_WritePin(_1_GPIO_Port , _1_Pin , 0) ;
-	  HAL_Delay(1000);
+	  for(int i = 0; i < 5; i++){
+		  display_first_row(led_connection[i]);
+
+		  display_second_row(led_connection[i]);
+
+		  display_third_row(led_connection[i]);
+
+		  display_fourth_row(led_connection[i]);
+
+		  display_fifth_row(led_connection[i]);
+
+	  }
 
     /* USER CODE BEGIN 3 */
   }
