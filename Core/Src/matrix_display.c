@@ -9,7 +9,7 @@
 #include "matrix_display.h"
 //NUMBER OF LEDS PER ROW
 #define LED_PER_ROW 5
-#define DELAY_TIME 50
+#define DELAY_TIME 100
 // represents leds to toggle
 
 void display_first_row(uint8_t b){
