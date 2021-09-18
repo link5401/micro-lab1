@@ -10,29 +10,12 @@
 //NUMBER OF LEDS PER ROW
 #define LED_PER_ROW 5
 //NUMBER OF ROWS
-#define NUMBER_OF_ROWS 5
+#define NUMBER_OF_LED 5
 #define DELAY_TIME 1000
 //NumberOnClock utility
 #define MAX_INDEX 12
-static uint8_t numOn[MAX_INDEX] =
-{
-		0x8,
-		0x4,
-		0x2,
-		0x10,
-		0x1,
-		0x10,
-		0x1,
-		0x10,
-		0x1,
-		0x8,
-		0x4,
-		0x2
-};
-//Array to save current states of rows, initial states are all 0s.
-//When a display function is called, save the state to the appropriate index. (first row = index 0).
-static uint8_t states[NUMBER_OF_ROWS] = {0x0 , 0x0 , 0x0 , 0x0 , 0x0};
-//display
+
+static uint8_t states[NUMBER_OF_LED] = {0x0 , 0x0 , 0x0 , 0x0 , 0x0};
 void display_first_row(uint8_t b){
 	  HAL_GPIO_WritePin(_6_GPIO_Port , _6_Pin , 0) ;
 	  if(b & 0x10){
@@ -190,20 +173,109 @@ void display_fifth_row(uint8_t b){
 }
 
 void setNumberOnClock(int num){
-	if(num >= 0 && num <= 2){
-		display_first_row(numOn[num]);
-	} else if (num == 3 || num == 4){
-		display_second_row(numOn[num]);
-	} else if (num == 5 || num == 6){
-		display_third_row(numOn[num]);
-	} else if (num == 7 || num == 8){
-		display_fourth_row(numOn[num]);
-	} else if (num >= 9 && num <= 11){
-		display_fifth_row(numOn[num]);
-	} else{
-		return;
+switch (num){
+	case 0:
+		if (!(states[0] & 0x10)) states[0] = states[0] | (1 << 3);
+		display_first_row(states[0]);
+		break;
+	case 1:
+		if (!(states[0] & 0x08)) states[0] = states[0] | (1 << 2);
+		display_first_row(states[0]);
+		break;
+	case 2:
+		if (!(states[0] & 0x04)) states[0] = states[0] | (1 << 1);
+		display_first_row(states[0]);
+		break;
+	case 3:
+		if (!(states[1] & 0x20)) states[1] = states[1] | (1 << 4);
+		display_second_row(states[1]);
+		break;
+	case 4:
+		if (!(states[1] & 0x02)) states[1] = states[1] | (1 << 0);
+		display_second_row(states[1]);
+		break;
+	case 5:
+		if (!(states[2] & 0x20)) states[2] = states[2] | (1 << 4);
+		display_third_row(states[2]);
+		break;
+	case 6:
+		if (!(states[2] & 0x02)) states[2] = states[2] | (1 << 0);
+		display_third_row(states[2]);
+		break;
+	case 7:
+		if (!(states[3] & 0x20)) states[3] = states[3] | (1 << 4);
+		display_fourth_row(states[3]);
+		break;
+	case 8:
+		if (!(states[3] & 0x02)) states[3] = states[3] | (1 << 0);
+		display_fourth_row(states[3]);
+		break;
+	case 9:
+		if (!(states[4] & 0x10)) states[4] = states[4] | (1 << 3);
+		display_fifth_row(states[4]);
+		break;
+	case 10:
+		if (!(states[4] & 0x08)) states[4] = states[4] | (1 << 2);
+		display_fifth_row(states[4]);
+		break;
+	case 11:
+		if (!(states[4] & 0x04)) states[4] = states[4] | (1 << 1);
+		display_fifth_row(states[4]);
+		break;
 	}
-	HAL_Delay(1000);
+}
+void clearNumberOnClock(int num){
+	switch (num){
+	case 0:
+		if ((int)states[0] - 8 >= 0) states[0] = (uint8_t)((int)states[0] - 8);
+		display_first_row(states[0]);
+		break;
+	case 1:
+		if ((int)states[0] - 4 >= 0) states[0] = (uint8_t)((int)states[0] - 4);
+		display_first_row(states[0]);
+		break;
+	case 2:
+		if ((int)states[0] - 2 >= 0) states[0] = (uint8_t)((int)states[0] - 2);
+		display_first_row(states[0]);
+		break;
+	case 3:
+		if ((int)states[1] - 16 >= 0) states[1] = (uint8_t)((int)states[1] - 16);
+		display_second_row(states[1]);
+		break;
+	case 4:
+		if ((int)states[1] - 1 >= 0) states[1] = (uint8_t)((int)states[1] - 1);
+		display_second_row(states[1]);
+		break;
+	case 5:
+		if ((int)states[2] - 16 >= 0) states[2] = (uint8_t)((int)states[2] - 16);
+		display_third_row(states[2]);
+		break;
+	case 6:
+		if ((int)states[2] - 1 >= 0) states[2] = (uint8_t)((int)states[2] - 1);
+		display_third_row(states[2]);
+		break;
+	case 7:
+		if ((int)states[3] - 16 >= 0) states[3] = (uint8_t)((int)states[3] - 16);
+		display_fourth_row(states[3]);
+		break;
+	case 8:
+		if ((int)states[3] - 1 >= 0) states[3] = (uint8_t)((int)states[3] - 1);
+		display_fourth_row(states[3]);
+		break;
+	case 9:
+		if ((int)states[4] - 8 >= 0) states[4] = (uint8_t)((int)states[4] - 8);
+		display_fifth_row(states[4]);
+		break;
+	case 10:
+		if ((int)states[4] - 4 >= 0) states[4] = (uint8_t)((int)states[4] - 4);
+		display_fifth_row(states[4]);
+		break;
+	case 11:
+		if ((int)states[4] - 2 >= 0) states[4] = (uint8_t)((int)states[4] - 2);
+		display_fifth_row(states[4]);
+		break;
+	}
+
 }
 void clearAllClock(){
 	HAL_GPIO_WritePin(_6_GPIO_Port , _6_Pin , 1) ;

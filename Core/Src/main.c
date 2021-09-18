@@ -92,12 +92,16 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  int counter = 0;
+
+
   while (1)
   {
     /* USER CODE END WHILE */
-	setNumberOnClock(counter++);
-	if(counter > 11) counter = 0;
+	 setNumberOnClock(4);
+	 setNumberOnClock(3);
+	 setNumberOnClock(11);
+	 clearNumberOnClock(3);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
