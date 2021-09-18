@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "matrix_display.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -97,10 +98,20 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	 setNumberOnClock(4);
-	 setNumberOnClock(3);
-	 setNumberOnClock(11);
-	 clearNumberOnClock(3);
+
+	  int counter = 1;
+	  int hour = 0;
+	  int minute = 0;
+	  while(counter <= 11){
+		  setNumberOnClock(minute);
+		  setNumberOnClock(hour);
+	  	  setNumberOnClock(counter);
+	  	  clearNumberOnClock(counter);
+	  	  if(counter == 11){ counter = 1; clearNumberOnClock(minute++); }
+	  	  if (minute == 11){ minute = 0; clearNumberOnClock(hour++);}
+	  	  counter++;
+
+	  }
 
     /* USER CODE BEGIN 3 */
   }

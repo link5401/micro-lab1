@@ -10,12 +10,12 @@
 //NUMBER OF LEDS PER ROW
 #define LED_PER_ROW 5
 //NUMBER OF ROWS
-#define NUMBER_OF_LED 5
-#define DELAY_TIME 1000
+
+#define DELAY_TIME 25
 //NumberOnClock utility
 #define MAX_INDEX 12
 
-static uint8_t states[NUMBER_OF_LED] = {0x0 , 0x0 , 0x0 , 0x0 , 0x0};
+
 void display_first_row(uint8_t b){
 	  HAL_GPIO_WritePin(_6_GPIO_Port , _6_Pin , 0) ;
 	  if(b & 0x10){
@@ -175,51 +175,51 @@ void display_fifth_row(uint8_t b){
 void setNumberOnClock(int num){
 switch (num){
 	case 0:
-		if (!(states[0] & 0x10)) states[0] = states[0] | (1 << 3);
+		 states[0] = states[0] | (1 << 3);
 		display_first_row(states[0]);
 		break;
 	case 1:
-		if (!(states[0] & 0x08)) states[0] = states[0] | (1 << 2);
+		states[0] = states[0] | (1 << 2);
 		display_first_row(states[0]);
 		break;
 	case 2:
-		if (!(states[0] & 0x04)) states[0] = states[0] | (1 << 1);
+		states[0] = states[0] | (1 << 1);
 		display_first_row(states[0]);
 		break;
 	case 3:
-		if (!(states[1] & 0x20)) states[1] = states[1] | (1 << 4);
+		states[1] = states[1] | (1 << 4);
 		display_second_row(states[1]);
 		break;
 	case 4:
-		if (!(states[1] & 0x02)) states[1] = states[1] | (1 << 0);
+		states[1] = states[1] | (1 << 0);
 		display_second_row(states[1]);
 		break;
 	case 5:
-		if (!(states[2] & 0x20)) states[2] = states[2] | (1 << 4);
+		states[2] = states[2] | (1 << 4);
 		display_third_row(states[2]);
 		break;
 	case 6:
-		if (!(states[2] & 0x02)) states[2] = states[2] | (1 << 0);
+		states[2] = states[2] | (1 << 0);
 		display_third_row(states[2]);
 		break;
 	case 7:
-		if (!(states[3] & 0x20)) states[3] = states[3] | (1 << 4);
+		states[3] = states[3] | (1 << 4);
 		display_fourth_row(states[3]);
 		break;
 	case 8:
-		if (!(states[3] & 0x02)) states[3] = states[3] | (1 << 0);
+		states[3] = states[3] | (1 << 0);
 		display_fourth_row(states[3]);
 		break;
 	case 9:
-		if (!(states[4] & 0x10)) states[4] = states[4] | (1 << 3);
+		states[4] = states[4] | (1 << 3);
 		display_fifth_row(states[4]);
 		break;
 	case 10:
-		if (!(states[4] & 0x08)) states[4] = states[4] | (1 << 2);
+		states[4] = states[4] | (1 << 2);
 		display_fifth_row(states[4]);
 		break;
 	case 11:
-		if (!(states[4] & 0x04)) states[4] = states[4] | (1 << 1);
+		states[4] = states[4] | (1 << 1);
 		display_fifth_row(states[4]);
 		break;
 	}
