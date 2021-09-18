@@ -91,14 +91,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t led_connection[5] =
-  {
-		  0xe,
-		  0x11,
-		  0x11,
-		  0x11,
-		  0xe
-  };
+
   int counter = 0;
   while (1)
   {

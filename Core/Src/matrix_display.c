@@ -9,6 +9,8 @@
 #include "matrix_display.h"
 //NUMBER OF LEDS PER ROW
 #define LED_PER_ROW 5
+//NUMBER OF ROWS
+#define NUMBER_OF_ROWS 5
 #define DELAY_TIME 1000
 //NumberOnClock utility
 #define MAX_INDEX 12
@@ -27,7 +29,10 @@ static uint8_t numOn[MAX_INDEX] =
 		0x4,
 		0x2
 };
-
+//Array to save current states of rows, initial states are all 0s.
+//When a display function is called, save the state to the appropriate index. (first row = index 0).
+static uint8_t states[NUMBER_OF_ROWS] = {0x0 , 0x0 , 0x0 , 0x0 , 0x0};
+//display
 void display_first_row(uint8_t b){
 	  HAL_GPIO_WritePin(_6_GPIO_Port , _6_Pin , 0) ;
 	  if(b & 0x10){
@@ -55,6 +60,7 @@ void display_first_row(uint8_t b){
 	  }else{
 		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 	  }
+	  states[0] = b ;
 	  HAL_Delay(DELAY_TIME) ;
 	  HAL_GPIO_WritePin(_6_GPIO_Port , _6_Pin , 1) ;
 }
@@ -85,6 +91,7 @@ void display_second_row(uint8_t b){
 	 	  }else{
 	 		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 	 	  }
+	 	  states[1] = b ;
 		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_7_GPIO_Port , _7_Pin , 1) ;
 }
@@ -115,6 +122,7 @@ void display_third_row(uint8_t b){
 	 	  }else{
 	 		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 	 	  }
+	 	  states[2] = b ;
 		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_8_GPIO_Port , _8_Pin , 1) ;
 }
@@ -145,6 +153,7 @@ void display_fourth_row(uint8_t b){
 	 	  }else{
 	 		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 	 	  }
+	 	  states[3] = b ;
 		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_9_GPIO_Port , _9_Pin , 1) ;
 }
@@ -175,6 +184,7 @@ void display_fifth_row(uint8_t b){
 	 	  }else{
 	 		  HAL_GPIO_WritePin(_5_GPIO_Port , _5_Pin , 0) ;
 	 	  }
+	 	  states[4] = b ;
 		  HAL_Delay(DELAY_TIME) ;
 		  HAL_GPIO_WritePin(_10_GPIO_Port , _10_Pin , 1) ;
 }
