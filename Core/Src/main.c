@@ -109,6 +109,7 @@ int main(void)
 	  	  clearNumberOnClock(counter);
 	  	  if(counter == 11){ counter = 1; clearNumberOnClock(minute++); }
 	  	  if (minute == 11){ minute = 0; clearNumberOnClock(hour++);}
+	  	  if (hour == 11) {hour = 0;}
 	  	  counter++;
 
 	  }

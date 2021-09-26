@@ -11,7 +11,7 @@
 #define LED_PER_ROW 5
 //NUMBER OF ROWS
 
-#define DELAY_TIME 25
+#define DELAY_TIME 50
 //NumberOnClock utility
 #define MAX_INDEX 12
 
@@ -175,7 +175,7 @@ void display_fifth_row(uint8_t b){
 void setNumberOnClock(int num){
 switch (num){
 	case 0:
-		 states[0] = states[0] | (1 << 3);
+		states[0] = states[0] | (1 << 3);
 		display_first_row(states[0]);
 		break;
 	case 1:
