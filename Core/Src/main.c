@@ -98,21 +98,24 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-	  int counter = 1;
+//
+	  int counter = 0;
 	  int hour = 0;
 	  int minute = 0;
 	  while(counter <= 11){
 		  setNumberOnClock(minute);
 		  setNumberOnClock(hour);
 	  	  setNumberOnClock(counter);
+	  	  HAL_Delay(DELAY_TIME);
 	  	  clearNumberOnClock(counter);
-	  	  if(counter == 11){ counter = 1; clearNumberOnClock(minute++); }
+	  	  if(counter == 11){ counter = 0; clearNumberOnClock(minute++); }
 	  	  if (minute == 11){ minute = 0; clearNumberOnClock(hour++);}
 	  	  if (hour == 11) {hour = 0;}
+
 	  	  counter++;
 
 	  }
+
 
     /* USER CODE BEGIN 3 */
   }
